@@ -6,6 +6,29 @@
 
 //  find the largest difference between the shortest length and a longest length in each array. Hint: each array will have a shortest and a longest. Return the largest difference between the two arrays.
 
+a1 = [
+  'hoqq',
+  'bbllkw',
+  'oox',
+  'ejjuyyy',
+  'plmiis',
+  'xxxzgpsssa',
+  'xxwwkktt',
+  'znnnnfqknaz',
+  'qqquuhii',
+  'dvvvwz',
+];
+a2 = ['cccooommaaqqoxii', 'gggqaffhhh', 'tttoowwwmmww'];
+
 function mxdiflg(a1, a2) {
-  // your code
+  if (a1.length === 0 || a2.length === 0) return -1;
+  let stL1 = a1.map(string => string.length);
+  let stL2 = a2.map(string => string.length);
+
+  return Math.max(
+    Math.max(...stL1) - Math.min(...stL2),
+    Math.max(...stL2) - Math.min(...stL1)
+  );
 }
+
+console.log(mxdiflg(a1, a2)); // 13
