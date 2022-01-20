@@ -4,10 +4,11 @@ function sockMerchant(n, ar) {
   let pairs = 0;
 
   for (let item of ar) {
-    console.log('item', socks[item]);
+    console.log('item:', item);
+    console.log('socks[item]:', socks[item]);
     console.log('socks:', socks);
     socks[item] = socks[item] + 1 || 1;
-    console.log('socks after iteration', socks);
+    console.log('socks after iteration:', socks);
 
     if (socks[item] % 2 === 0) {
       pairs++;
