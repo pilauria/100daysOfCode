@@ -3,6 +3,7 @@
 
 //   let isCapsLocked = false;
 //   let result = str.split('').reduce((acc, char) => {
+//     console.log('char:', char, 'acc:', acc);
 //     if (char.toUpperCase() === 'A') {
 //       isCapsLocked = !isCapsLocked;
 //       return acc;
@@ -12,24 +13,32 @@
 //         char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase();
 //     }
 //     acc += char;
+//     console.log('char1:', char, 'acc1:', acc);
 //     return acc;
 //   }, '');
 //   return result;
 // };
+// abABaBabAb
+function fatFingers(string) {
+  let fatFingered = '',
+    capitalize = false;
 
-function fatFingers(q) {
-  let a = '',
-    c = false;
-  if (!q || q == '') {
-    return q;
+  if (!string || string == '') {
+    return string;
   }
-  for (let i = 0; i < q.length; i++) {
-    let t = q[i];
-    if (t == 'a' || t == 'A') {
-      c = !c;
+  for (let i = 0; i < string.length; i++) {
+    let letter = string[i];
+    if (letter == 'a' || letter == 'A') {
+      capitalize = !capitalize;
       continue;
     }
-    a += c ? (t == t.toLowerCase() ? t.toUpperCase() : t.toLowerCase()) : t;
+    fatFingered += capitalize
+      ? letter == letter.toLowerCase()
+        ? letter.toUpperCase()
+        : letter.toLowerCase()
+      : letter;
   }
-  return a;
+  return fatFingered;
 }
+
+console.log(fatFingers('abABaBabAb'));
